@@ -1,0 +1,25 @@
+---
+const {title, tags, date, link} = Astro.props
+const options: Intl.DateTimeFormatOptions = {
+	weekday: "long",
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+---
+<>
+	<h2>{title}</h2>
+	<p class="date">
+		{date.toLocaleDateString("en-US", options)}
+	</p>
+	{
+		tags && (
+			<ul>
+				{tags.map((t: string) => (
+					<li>{t}</li>
+				))}
+			</ul>
+		)
+	}
+	<p><a href={link}>Read More</a></p>
+</>

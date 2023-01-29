@@ -1,0 +1,55 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+import info from "../../../info";
+const {base: baseURL} = info
+
+const options: Intl.DateTimeFormatOptions = {
+	weekday: "long",
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog-posts");
+  const uniqueTags = [...new Set(allPosts.filter(post => post.data?.tags).map((post) => post.data.tags).flat())];
+  return uniqueTags.map((tag: string | undefined) => {
+    const filteredPosts = allPosts.filter((post) => post.data?.tags && tag && post.data.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts, uniqueTags },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+---
+
+<Layout title={tag || "Tag not found"}>
+	<h1>[ {tag} ]</h1>
+	<>
+	{posts.map((post:CollectionEntry<"blog-posts">) => <p><a href={`${baseURL}/blog/${post.slug}/`}>{post.data.title}</a></p>)}
+	</>
+	<p class="navigate"><a href={`${baseURL}/blog/tags/`}>See all tags</a></p>
+	
+</Layout>
+
+<style>
+	.tags {
+		font-size: var(--font-size-lg);
+	}
+	.tags-item {
+		font-size: var(--font-size-md);
+	}
+	.navigate {
+		margin-top: 3em;
+	}
+	h1 {display: inline-block;}
+	h1:before, h1:after {
+		height: var(--font-size-xl);
+	}
+</style>
