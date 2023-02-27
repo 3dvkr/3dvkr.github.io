@@ -11,7 +11,7 @@ The problem: when the user entered the text content, it included multiple paragr
 ## Code
 To follow along, I've made [a CodePen demo](https://codepen.io/dvkr/pen/PodMGaB). Here, the text content doesn't make that round trip from the client to a server and then back again, since we're only interested in rendering it. The sample text content will have two paragraphs from the author, and we'll look at how to make sure they are visible as two separate paragraphs when we look at the actual website. If I'm talking about paragraphs as in the HTML element, I'll call them *paragraph tags* or `<p>` tags to avoid confusing them with the author's intended paragraphs within the text content. 
 
-<p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="PodMGaB" data-preview="true" data-editable="true" data-user="dvkr" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="PodMGaB" data-user="dvkr" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/dvkr/pen/PodMGaB">
   whitespace-test</a> by dvkr (<a href="https://codepen.io/dvkr">@dvkr</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
