@@ -4,7 +4,7 @@ date: 2023-02-27
 tags: ['html', 'css']
 ---
 
-This is a recent debugging session I had with a developer, working with Express and EJS. We were looking at two views in their app: one where users can enter or edit entries to save to a database, and one where the retrieves all of the user's saved entries as read-only text. For the editing page, it used a `textarea` element to capture what the user wrote, and for the reading page, each entry's text content went in its own HTML element. 
+This is a recent debugging session I had with a developer, working with Express and EJS. We were looking at two views in their app: one where users can enter or edit entries to save to a database, and one that retrieves all of the user's saved entries as read-only text. For the editing page, it used a `textarea` element to capture what the user wrote, and for the reading page, each entry's text content went in its own HTML element. 
 
 The problem: when the user entered the text content, it included multiple paragraphs. When it was rendered on the read-only page, the text appeared as one paragraph, as if the newline characters were all gone. How do we make sure the paragraphs intented in the plaintext content would show up?
 

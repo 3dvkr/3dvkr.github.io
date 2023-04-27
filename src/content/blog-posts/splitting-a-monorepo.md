@@ -6,7 +6,7 @@ tags: ["project", "git"]
 I recently needed to split a monorepo. Somewhere between Node 20 making standalone apps possible, deployment platforms with vanishing or punitive free tiers, and the size of my app, I wanted my API and React in separate repositories. 
 
 ## Preserving Git Histories
-I decided I'd keep the original monorepo as is, and create two repos to work with going forward: one for the frontend, and one for the backend. Both times, I started with a clone of the monorepo and used `filter-repo` to only include the files and folders that were relevent the new repo I was creating. The `filter-repo` isn't included in the git, but it's a python script that can be installed with a package manager. I ran `pip install git-filter-repo`. 
+I decided I'd keep the original monorepo as is, and create two repos to work with going forward: one for the frontend, and one for the backend. Both times, I started with a clone of the monorepo and used `filter-repo` to only include the files and folders that were relevent to the new repo I was creating. The `filter-repo` isn't included in git, but it's a python script that can be installed with a package manager. I ran `pip install git-filter-repo`. 
 
 For separating out the frontend:
 ```powershell
