@@ -39,6 +39,6 @@ By default, Netlify redirects the paths with an HTTP code of 301. This means the
 I also added a new `.gitignore` to my frontend repo to exclude `node_modules` and `.env` files.
 
 ## Links
-[git-filter-repo repository](https://github.com/newren/git-filter-repo/)
-[git-filter-repo Manual](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html) 
-[Rapt](https://rapt-app.netlify.app)
+- [git-filter-repo repository](https://github.com/newren/git-filter-repo/)
+- [git-filter-repo Manual](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html) 
+- [Rapt](https://rapt-app.netlify.app)
