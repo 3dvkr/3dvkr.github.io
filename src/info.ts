@@ -18,8 +18,8 @@ export default {
         {
             title: "Rapt",
             imgSrc: "/images/rapt.png",
-            liveURL: "https://rapt.up.railway.app/",
-            githubURL: "https://github.com/3dvkr/rapt",
+            liveURL: "https://rapt-app.netlify.app/",
+            githubURL: "https://github.com/3dvkr/rapt-backend",
             description: "A neurodiversity-friendly full-stack time-tracker and pomodoro app. It uses  TypeScript, PostgreSQL, Prisma, Express, React, Tanstack-Query, Zustand, and DaisyUI."
         },
         {
