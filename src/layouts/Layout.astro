@@ -2,8 +2,7 @@
 export interface Props {
 	title: string;
 }
-import info from "../info";
-const {base: baseURL} = info
+import Header from "../components/Header.astro"
 const { title } = Astro.props;
 ---
 
@@ -21,18 +20,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header role="banner">
-			<nav aria-label="Site navigation">
-				<div class="site-name">
-					<a href={baseURL + "/"}>Home</a>
-				</div>
-				<div class="links">
-					<a href={baseURL + "/portfolio"}>Portfolio</a>
-					<a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
-					<a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
-				</div>
-			</nav>
-		</header>
+		<Header />
 		<main>
 			<slot />
 		</main>
