@@ -34,22 +34,6 @@ const { posts } = Astro.props;
 	<>
 	{posts.map((post:CollectionEntry<"blog-posts">) => <p><a href={`${baseURL}/blog/${post.slug}/`}>{post.data.title}</a></p>)}
 	</>
-	<p class="navigate"><a href={`${baseURL}/blog/tags/`}>See all tags</a></p>
+	<p><a href={`${baseURL}/blog/tags/`}>See all tags</a></p>
 	
 </Layout>
-
-<style>
-	.tags {
-		font-size: var(--font-size-lg);
-	}
-	.tags-item {
-		font-size: var(--font-size-md);
-	}
-	.navigate {
-		margin-top: 3em;
-	}
-	h1 {display: inline-block;}
-	h1:before, h1:after {
-		height: var(--font-size-xl);
-	}
-</style>

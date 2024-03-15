@@ -9,8 +9,7 @@ const title = "Portfolio";
 ---
 
 <Layout title={title}>
-	<h1>Hi, I'm dvkr, and this is my portfolio.</h1>
-	<!-- <h2></h2> -->
+	<h1>portfolio</h1>
 	<p>
 		I'm a software developer, working mostly with the MERN stack. I love all
 		things design and accessibility, writing clean code and docs, and building reliable and performant solutions. I bring with me skills from my previous work in vocational retraining and education for adults, and physics research.
@@ -73,22 +72,5 @@ const title = "Portfolio";
 		position: relative;
 		display: inline-block;
 	}
-	h2:before {
-		content: "";
-		--mult: 1.1;
-		height: calc(var(--font-size-xl) * var(--mult));
-		position: absolute;
-		z-index: -1;
-		--h-alpha: 0.2;
-		--h-clr: 80;
 
-	}
-	h2:before {
-		background: hsla(var(--h-clr), 60%, 65%, calc(var(--h-alpha) * 2));
-		width: calc(100% + 1ch);
-		bottom: 0;
-		left: -0.5ch;
-		border-radius: 0 5px 60% / 40% 85%;
-		transform: rotate(-1deg);
-	}
 </style>

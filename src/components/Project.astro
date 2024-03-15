@@ -16,7 +16,7 @@ function chooseLayout(
 }
 ---
 
-<section class="container">
+<section class="project-container">
 	<section class="img">
 		<img src={imgSrc} alt={title + " project screenshot"} />
 	</section>
@@ -43,7 +43,7 @@ function chooseLayout(
 		--bg-solid: hsla(var(--clr-main) 15%);
 	}
 
-	.container {
+	.project-container {
 		display: grid;
 		grid-template-columns: 1fr;
 		max-width: min(90%, 95ch);
@@ -87,22 +87,13 @@ function chooseLayout(
 	a:visited {
 		color: var(--clr-main-400);
 	}
-	/* a:hover,
-	a:focus {
-		background: var(--clr-main-700);
-		box-shadow: -0.7rem 0.7rem 0 0.1rem var(--clr-main-700),
-			-0.8rem 0.8rem 0 0.2rem pink, 0.7rem -0.7rem 0 0.1rem var(--clr-main-700),
-			0.8rem -0.8rem 0 0.2rem pink;
-		transition: box-shadow 0.4s cubic-bezier(0.1, 2, 0.3, 0.8) 0.2s;
-        will-change: transform;
-	} */
 
 	@media (min-width: 922px) {
-		.container {
+		.project-container {
 			grid-template-columns: repeat(7, 1fr);
 		}
 
-		.container:hover {
+		.project-container:hover {
 			--bg-color: hsla(var(--clr-main) 15% / 0.7);
 		}
 

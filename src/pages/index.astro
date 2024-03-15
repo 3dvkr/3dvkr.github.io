@@ -20,7 +20,7 @@ const options: Intl.DateTimeFormatOptions = {
 ---
 
 <Layout title="Home">
-	<h1>Hi, I'm dvkr, and this is my blog</h1>
+	<h1>blog</h1>
 	<h2 class="featured">Featured Posts</h2>
 	{featured.map(blog => (
 		<p class="featured-mark"><a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>{": "}<span class="excerpt">{blog.data?.excerpt}</span></p>
@@ -32,7 +32,7 @@ const options: Intl.DateTimeFormatOptions = {
 			date.setHours(date.getHours() + 8);
 			return (
 				<div class={`posts ${blog.data.featured ? "featured-mark" : ""}`}>
-					<p class="date">{date.toLocaleDateString("en-US", options)}</p>
+					<p>{date.toLocaleDateString("en-US", options)}</p>
 					<p>
 						<a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>
 					</p>
@@ -42,15 +42,3 @@ const options: Intl.DateTimeFormatOptions = {
 	}
 </Layout>
 
-<style>
-	.excerpt {font-style: italic;}
-	.featured-mark {
-		position: relative;
-	}
-	.featured-mark::before{
-		content: "🎺";
-		position: absolute;
-		left: -2em;
-
-	}
-</style>

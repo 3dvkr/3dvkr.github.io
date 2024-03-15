@@ -34,14 +34,14 @@ date.setHours(date.getHours() + 8);
 <Layout title={data.title}>
 	<h1>{data.title}</h1>
 	{excerpt && <p class="excerpt">{excerpt}</p>}
-	<p class="date">
+	<p>
 		{date.toLocaleDateString("en-US", options)}
 	</p>
 	{
 		data.tags && (
 			<div>
-			<h3 class="tags">Tags:</h3>
-			<ul class="tags">
+				<h3>Tags:</h3>
+				<ul>
 				{data.tags.map((t: string) => (
 					<li class="tags-item"><a href={`${baseURL}/blog/tags/${t}/`}>{t}</a></li>
 				))}
@@ -53,17 +53,3 @@ date.setHours(date.getHours() + 8);
 		<Content />
 	</div>
 </Layout>
-
-<style>
-	.tags {
-		font-size: var(--font-size-lg);
-	}
-	.tags-item {
-		font-size: var(--font-size-md);
-	}
-	.excerpt {
-		font-size: var(--font-size-md);
-		font-weight: 700;
-		text-align: center;
-	}
-</style>
