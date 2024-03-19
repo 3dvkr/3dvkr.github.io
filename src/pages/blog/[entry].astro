@@ -1,55 +1,72 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import { type CollectionEntry, getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
 
-import info from "../../info";
-const {base: baseURL} = info;
+import info from '../../info'
+const { base: baseURL } = info
 
 const options: Intl.DateTimeFormatOptions = {
-	weekday: "long",
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-};
+	weekday: 'long',
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+}
 
 // list of static paths
 export async function getStaticPaths() {
-	const entries = await getCollection("blog-posts");
+	const entries = await getCollection('blog-posts')
 	return entries.map((e) => ({
 		params: { entry: e.slug },
 		props: e,
-	}));
+	}))
 }
 
 // bring in data
-const { data, render } = Astro.props; // it will know what props is because of the object you're returning in `getStaticPaths`
-const {excerpt} = data
+const { data, render } = Astro.props // it will know what props is because of the object you're returning in `getStaticPaths`
+const { excerpt } = data
 
-const { Content } = await render();
+const { Content } = await render()
 
-const date = new Date(data.date);
-date.setHours(date.getHours() + 8);
+const date = new Date(data.date)
+date.setHours(date.getHours() + 8)
 ---
 
 <Layout title={data.title}>
-	<h1>{data.title}</h1>
-	{excerpt && <p class="excerpt">{excerpt}</p>}
-	<p>
-		{date.toLocaleDateString("en-US", options)}
-	</p>
-	{
-		data.tags && (
-			<div>
-				<h3>Tags:</h3>
-				<ul>
-				{data.tags.map((t: string) => (
-					<li class="tags-item"><a href={`${baseURL}/blog/tags/${t}/`}>{t}</a></li>
-				))}
-			</ul>
-			</div>
-		)
-	}
-	<div>
+<div class="container">
+	
+		<h1>{data.title}</h1>
+		{excerpt && <p class="excerpt">{excerpt}</p>}
+		<p class="blog-date">
+			{date.toLocaleDateString('en-US', options)}
+		</p>
+		{
+			data.tags && (
+				<div class="tag-list">
+					<p>Tags:</p>
+					<ul>
+						{data.tags.map((t: string) => (
+							<li class="tags-item">
+								<a href={`${baseURL}/blog/tags/${t}/`}>{t}</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			)
+		}
+	
+</div>
+	<div class="container">
 		<Content />
 	</div>
 </Layout>
+
+<style>
+	.tag-list * {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul li {
+		list-style: none;
+	}
+</style>

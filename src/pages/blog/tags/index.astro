@@ -11,8 +11,10 @@ const tags = [...new Set(allPosts.filter((post: CollectionEntry<"blog-posts">) =
 ---
 
 <Layout title={pageTitle} >
+
     <h1>Tags:</h1>
   <ul class="tags">
     {tags.map((tag) => <li class="tag"><a href={`${baseURL}/blog/tags/${tag}/`}>{tag}</a></li>)}
   </ul>
+  
 </Layout>

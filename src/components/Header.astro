@@ -1,16 +1,37 @@
 ---
-import info from "../info";
-const {base: baseURL} = info
+import info from '../info'
+const { base: baseURL } = info
 ---
-<header role="banner">
-  <nav class="nav" aria-label="Site navigation">
-    <div class="site-name">
-      <a href={baseURL + "/"}>Home</a>
-    </div>
-    <div class="links">
-      <a href={baseURL + "/portfolio"}>Portfolio</a>
-      <a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
-      <a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
-    </div>
-  </nav>
+
+<header role="banner" class="container">
+	<nav class="nav" aria-label="Site navigation">
+		<div class="site-name">
+			<a href={baseURL + '/'}>Home</a>
+		</div>
+		<div class="links">
+			<a href={baseURL + '/portfolio'}>Portfolio</a>
+			<a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
+			<a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
+		</div>
+	</nav>
 </header>
+
+<style>
+	nav {
+		padding-block: 1lh 0.5lh;
+		& a {
+			font-size: var(--font-size-lg);
+			text-decoration: none;
+		}
+	}
+	@media screen and (min-width: 400px) {
+		nav, .links {
+			display: flex;
+			gap: 2ch;
+      font-size: var(--font-size-md);
+		}
+		.links {
+			margin-left: auto;
+		}
+	}
+</style>

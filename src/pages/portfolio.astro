@@ -1,40 +1,45 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Project from "../components/Project.astro";
+import Layout from '../layouts/Layout.astro'
+import Project from '../components/Project.astro'
 
-import info from "../info";
-const { projects, tech } = info;
+import info from '../info'
+const { projects, tech } = info
 
-const title = "Portfolio";
+const title = 'Portfolio'
 ---
 
 <Layout title={title}>
-	<h1>portfolio</h1>
-	<p>
-		I'm a software developer, working mostly with the MERN stack. I love all
-		things design and accessibility, writing clean code and docs, and building reliable and performant solutions. I bring with me skills from my previous work in vocational retraining and education for adults, and physics research.
-	</p>
-	<h2>My Projects</h2>
-	{
-		projects.map((p, i) => (
-			<Project
-				title={p.title}
-				imgSrc={p.imgSrc}
-				liveURL={p.liveURL}
-				githubURL={p.githubURL}
-				mirrored={i % 2 === 1}
-			>
-				{p.description}
-			</Project>
-		))
-	}
+	<div class="container">
+		<h1>Portfolio.</h1>
+		<p>
+			I'm a software developer, working mostly with the MERN stack. I love all
+			things design and accessibility, writing clean code and docs, and building
+			reliable and performant solutions. I bring with me skills from my previous
+			work in vocational retraining and education for adults, and physics
+			research.
+		</p>
+		<h2>My Projects</h2>
+		{
+			projects.map((p, i) => (
+				<Project
+					title={p.title}
+					imgSrc={p.imgSrc}
+					liveURL={p.liveURL}
+					githubURL={p.githubURL}
+					mirrored={i % 2 === 1}
+				>
+					{p.description}
+				</Project>
+			))
+		}
 
-	<section class="main_section">
-		<h2>Technologies</h2>
-		<ul class="tech-list">
-			{tech.map((t) => <li>{t}</li>)}
-		</ul>
-	</section>
+		<section class="main_section">
+			<h2>Technologies</h2>
+			<ul class="tech-list">
+				{tech.map((t) => <li>{t}</li>)}
+			</ul>
+		</section>
+	</div>
 </Layout>
 
 <style>
@@ -63,7 +68,8 @@ const title = "Portfolio";
 		padding: 0.5em 1em;
 		font-variant: small-caps;
 		flex: 0 0 auto;
-		box-shadow: -0.1rem 0.1rem 0rem 0rem var(--clr-main-400),
+		box-shadow:
+			-0.1rem 0.1rem 0rem 0rem var(--clr-main-400),
 			0.1rem -0.1rem 0rem 0rem var(--clr-main-400),
 			0.2rem -0.2rem 0rem 0rem var(--clr-main-700),
 			-0.2rem 0.2rem 0rem 0rem var(--clr-main-700);
@@ -72,5 +78,4 @@ const title = "Portfolio";
 		position: relative;
 		display: inline-block;
 	}
-
 </style>
