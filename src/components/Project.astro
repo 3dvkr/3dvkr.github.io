@@ -1,5 +1,5 @@
 ---
-const { title, imgSrc, liveURL, githubURL, mirrored } = Astro.props;
+const { title, imgSrc, liveURL, githubURL, mirrored } = Astro.props
 
 function chooseLayout(
 	className: string,
@@ -7,52 +7,60 @@ function chooseLayout(
 	isIndented: boolean = false
 ) {
 	if (isMirrored && isIndented) {
-		return className + " mirrored mirrored-margin";
+		return className + ' mirrored mirrored-margin'
 	} else if (isMirrored) {
-		return className + " mirrored";
+		return className + ' mirrored'
 	} else {
-		return className;
+		return className
 	}
 }
 ---
 
-<section class="container">
+<section class="project-container">
 	<section class="img">
-		<img src={imgSrc} alt={title + " project screenshot"} />
+		<img src={imgSrc} alt={title + ' project screenshot'} />
 	</section>
-	<section class={chooseLayout("project", mirrored)}>
+	<section class={chooseLayout('project', mirrored)}>
 		<h3>{title}</h3>
 	</section>
-	<section class={chooseLayout("info", mirrored, true)}>
+	<section class={chooseLayout('info', mirrored, true)}>
 		<slot />
 	</section>
-	<section class={chooseLayout("links", mirrored, true)}>
+	<section class={chooseLayout('links', mirrored, true)}>
 		<p><a href={liveURL} target="_blank">Live Site</a></p>
 		<p><a href={githubURL} target="_blank">Source Code</a></p>
 	</section>
 </section>
 
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
 	:root {
-		--bg-color: hsla(var(--clr-main) 15%/ 0.95);
-		--bg-solid: hsla(var(--clr-main) 15%);
+		--clr: 200;
+		--clr-main: var(--clr) 25%;
+		--clr-main-200: hsl(var(--clr-main) 95%);
+		--clr-main-300: hsl(var(--clr-main) 90%);
+		--clr-main-400: hsl(var(--clr-main) 75%);
+		--clr-main-500: hsl(var(--clr-main) 35%);
+		--clr-main-600: hsl(var(--clr-main) 25%);
+		--clr-main-700: hsl(var(--clr-main) 15%);
+		--bg-color: hsla(var(--clr-main) 18%/ 0.95);
+		--bg-solid: hsla(var(--clr-main) 18%);
 	}
 
-	.container {
+	.project-container {
 		display: grid;
 		grid-template-columns: 1fr;
 		max-width: min(90%, 95ch);
 		margin: 5rem auto;
+		--c1-base: #123;
+		--c2-base: #ddd;
+		--c2-light: #eef;
+		--c2-shade: #456;
 
-		box-shadow: -0.5rem 0.5rem 0rem 0rem var(--clr-main-200),
+		box-shadow:
+			-0.5rem 0.5rem 0rem 0rem var(--clr-main-200),
 			0.5rem -0.5rem 0rem 0rem var(--clr-main-200),
-			1rem -1rem 0rem 0rem var(--clr-main-700),
-			-1rem 1rem 0rem 0rem var(--clr-main-700);
+			1rem -1rem 0rem 0rem var(--clr-main-500),
+			-1rem 1rem 0rem 0rem var(--clr-main-500);
 	}
 
 	.img {
@@ -81,28 +89,27 @@ function chooseLayout(
 	}
 
 	a {
-		color: var(--clr-main-300);
+		--clr-link-accent: #2d3;
+		--clr-link-muted: #4c2;
+		--clr-link-active: #e65;
+		font-family: serif;
+		font-weight: normal;
+		text-underline-offset: 6px;
+		color: var(--clr-link-accent);
 	}
-
 	a:visited {
-		color: var(--clr-main-400);
+		color: var(--clr-link-muted);
 	}
-	/* a:hover,
-	a:focus {
-		background: var(--clr-main-700);
-		box-shadow: -0.7rem 0.7rem 0 0.1rem var(--clr-main-700),
-			-0.8rem 0.8rem 0 0.2rem pink, 0.7rem -0.7rem 0 0.1rem var(--clr-main-700),
-			0.8rem -0.8rem 0 0.2rem pink;
-		transition: box-shadow 0.4s cubic-bezier(0.1, 2, 0.3, 0.8) 0.2s;
-        will-change: transform;
-	} */
+	a:hover {
+		color: var(--clr-link-active);
+	}
 
 	@media (min-width: 922px) {
-		.container {
+		.project-container {
 			grid-template-columns: repeat(7, 1fr);
 		}
 
-		.container:hover {
+		.project-container:hover {
 			--bg-color: hsla(var(--clr-main) 15% / 0.7);
 		}
 

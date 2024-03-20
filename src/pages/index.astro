@@ -1,56 +1,64 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
 
-import info from "../info";
-const {base: baseURL} = info
+import info from '../info'
+const { base: baseURL } = info
 
-const blogs = await getCollection("blog-posts");
+const blogs = await getCollection('blog-posts')
 const sorted = [...blogs].sort(
 	(a, b) => Number(new Date(b.data.date)) - Number(new Date(a.data.date))
-);
-const featured = sorted.filter(b => b.data.featured)
+)
+const featured = sorted.filter((b) => b.data.featured)
 // .slice(0, 5);
 const options: Intl.DateTimeFormatOptions = {
 	// weekday: "short",
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-};
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+}
 ---
 
 <Layout title="Home">
-	<h1>Hi, I'm dvkr, and this is my blog</h1>
-	<h2 class="featured">Featured Posts</h2>
-	{featured.map(blog => (
-		<p class="featured-mark"><a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>{": "}<span class="excerpt">{blog.data?.excerpt}</span></p>
-	))}
-	<h2>All Posts</h2>
-	{
-		sorted.map((blog) => {
-			const date = new Date(blog.data.date);
-			date.setHours(date.getHours() + 8);
-			return (
-				<div class={`posts ${blog.data.featured ? "featured-mark" : ""}`}>
-					<p class="date">{date.toLocaleDateString("en-US", options)}</p>
-					<p>
-						<a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>
-					</p>
-				</div>
-			);
-		})
-	}
+	<div class="container">
+		<h1>Blog.</h1>
+		<h2 class="featured">Featured Posts</h2>
+		{
+			featured.map((blog) => (
+				<p class="featured-mark">
+					<a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>
+					{': '}
+					<span class="excerpt">{blog.data?.excerpt}</span>
+				</p>
+			))
+		}
+		<h2>All Posts</h2>
+		{
+			sorted.map((blog) => {
+				const date = new Date(blog.data.date)
+				date.setHours(date.getHours() + 8)
+				return (
+					<div class={`posts ${blog.data.featured ? 'featured-mark' : ''}`}>
+						<p>{date.toLocaleDateString('en-US', options)}</p>
+						<p>
+							<a href={`${baseURL}/blog/${blog.slug}/`}>{blog.data.title}</a>
+						</p>
+					</div>
+				)
+			})
+		}
+	</div>
 </Layout>
 
 <style>
-	.excerpt {font-style: italic;}
-	.featured-mark {
-		position: relative;
+	.posts > p {
+		font-family: monospace;
+		font-size: var(--font-size-base);
 	}
-	.featured-mark::before{
-		content: "🎺";
-		position: absolute;
-		left: -2em;
-
+	.posts {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 2ch;
+		align-items: center;
 	}
 </style>

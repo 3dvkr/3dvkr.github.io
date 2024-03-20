@@ -1,71 +1,37 @@
 ---
-import info from "../info";
-const {base: baseURL} = info
+import info from '../info'
+const { base: baseURL } = info
 ---
-<header role="banner">
-  <nav class="nav" aria-label="Site navigation">
-    <div class="site-name">
-      <a href={baseURL + "/"}>Home</a>
-    </div>
-    <div class="links">
-      <a href={baseURL + "/portfolio"}>Portfolio</a>
-      <a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
-      <a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
-    </div>
-  </nav>
+
+<header role="banner" class="container">
+	<nav class="nav" aria-label="Site navigation">
+		<div class="site-name">
+			<a href={baseURL + '/'}>Home</a>
+		</div>
+		<div class="links">
+			<a href={baseURL + '/portfolio'}>Portfolio</a>
+			<a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
+			<a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
+		</div>
+	</nav>
 </header>
 
 <style>
-  .nav {
-    --bottom: calc(-1 * var(--font-size-base) * 0.2);
-  }
-  .nav a {
-    position: relative;
-    content: '';
-    overflow: hidden;
-    text-decoration: none;
-  }
-  .nav a::before, .nav a::after {
-		position: absolute;
-    content: "";
-
-    width: 100%;
-
-		--h-clr-a: 80;
-		--h-clr-b: 10;
-  }
-  .nav a::before {
-    height: 70%;
-    bottom: var(--bottom);
-    z-index: -2;
-    
-		border-radius: 0 5px 60% / 40% 85%;
-    background: hsl(var(--bg-clr), 60%, 75%);
-    
-    --bg-clr: var(--h-clr-b);
+	nav {
+		padding-block: 1lh 0.5lh;
+		& a {
+			font-size: var(--font-size-lg);
+			text-decoration: none;
+		}
 	}
-  .nav .links > a::before {
-    --bg-clr: var(--h-clr-a);
+	@media screen and (min-width: 400px) {
+		nav, .links {
+			display: flex;
+			gap: 2ch;
+      font-size: var(--font-size-md);
+		}
+		.links {
+			margin-left: auto;
+		}
 	}
-  .nav a::after {
-    width: 110%;
-    height: 100%;
-    bottom: calc(var(--bottom) * 1.2);
-    left: 0;
-    z-index: -1;
-
-    background: linear-gradient(180deg, white 70%, transparent 70% 90%, white 90% 100%);
-
-    transform-origin: right;
-    transition: transform 350ms ease-out;
-  }
-  .links a:nth-child(n)::before {
-    transform: rotate(2deg);
-  }
-  .links a:nth-child(2n)::before {
-    transform: rotate(-1.5deg);
-  }
-  .nav a:hover::after {
-    transform: scaleX(0);
-  }
 </style>

@@ -1,21 +1,22 @@
 ---
 export interface Props {
-	title: string;
+	title: string
 }
-import Header from "../components/Header.astro"
-const { title } = Astro.props;
+import Header from '../components/Header.astro'
+const { title } = Astro.props
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<!-- <link rel="icon" type="image/svg+xml" href={baseURL + "/favicon.svg"} /> -->
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱‍💻</text></svg>" />
-		{ import.meta.env.PROD &&
-			<base href="https://3dvkr.github.io" />
-		  }
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱‍💻</text></svg>"
+		/>
+		{import.meta.env.PROD && <base href="https://3dvkr.github.io" />}
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -28,153 +29,159 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--max-w: 85ch;
+		--max-w: 90ch;
 
 		--font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
-		--font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 1.8rem);
-		--font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
-		--font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-		--font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+		--font-size-base: clamp(0.875rem, 0.7446rem + 0.6522vi, 1.25rem);
+		--font-size-md: clamp(1.05rem, 0.8357rem + 1.0717vi, 1.6663rem);
+		--font-size-lg: clamp(1.26rem, 0.9257rem + 1.6715vi, 2.2211rem);
+		--font-size-xl: clamp(1.512rem, 1.0081rem + 2.5196vi, 2.9607rem);
+		--font-size-xxl: clamp(1.8144rem, 1.0727rem + 3.7083vi, 3.9467rem);
 
-		--clr: 200;
-		--clr-main: var(--clr) 55%;
-		--clr-main-200: hsl(var(--clr-main) 95%);
-		--clr-main-300: hsl(var(--clr-main) 90%);
-		--clr-main-400: hsl(var(--clr-main) 75%);
-		--clr-main-500: hsl(var(--clr-main) 35%);
-		--clr-main-600: hsl(var(--clr-main) 25%);
-		--clr-main-700: hsl(var(--clr-main) 15%);
-	}
-	.date {
-		font-family: "American Typewriter", monospace;
-		font-size: var(--font-size-md);
-	}
-	.posts {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2ch;
-		align-items: center;
-	}
-	.site-name {
-		font-size: var(--font-size-md);
-		font-weight: 700;
-	}
-	header {
-		margin-top: 1rem;
-	}
-	header nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: end;
-		gap: 4ch;
-	}
-	.links a + a {
-		margin-left: clamp(1ch, 0.5ch + 2vw, 3ch);
-	}
-	.tags {
-		list-style: none;
-		display: flex;
-		gap: 2ch;
-	}
-	.tags li {
-		border: 1px solid grey;
-		border-radius: 0.3em;
-		padding: 0.25rem 1rem;
-	}
-	body {
-		/* max-width: min(130ch, 90%); */
-		padding: 1rem 2rem;
-		margin: 0 auto;
-		overflow-x: hidden;
-		letter-spacing: 0.1ch;
-		font-weight: 800;
-	}
-	html,
-	body {
-		font: 14px/1.5 "Helvetica";
-		box-sizing: border-box;
-		scroll-padding-top: calc(6.5em);
-		scroll-behavior: smooth;
-		line-height: 1.6;
-	}
-	h1,
-	h2 {
-		font-family: "Inter", "system-ui", sans-serif;
+		font-family: Arial, sans-serif;
+		color: #222;
 		letter-spacing: 0.2ch;
-	}
-	h1 {
-		font-size: var(--font-size-xxl);
-		line-height: 1.47em;
-		padding-top: 0.372em;
-		margin-bottom: 0.116em;
-		letter-spacing: 0.08em;
-		font-weight: 800;
-	}
 
-	h2 {
-		font-size: var(--font-size-xl);
-		line-height: 1.56em;
-		padding-top: 0.444em;
-		margin-bottom: 0.333em;
+		--c1-base: #f0f0f0;
+		--c1-variant: #e0e0e0;
+		--c1-light: #cce;
+		--c2-base: #333;
+		--c2-light: #113;
+		--c2-shade: #abd;
+		--c2-faded: #cce;
+		--clr-link-accent: #161;
+		--clr-link-muted: #141;
+		--clr-link-active: #c43;
 	}
-
-	h3 {
-		font-size: var(--font-size-lg);
-		line-height: 1.91em;
-		padding-top: 0.591em;
-		margin-bottom: 0.364em;
+	html {
+		background: var(--c1-base);
 	}
-
-	h4 {
-		font-size: var(--font-size-md);
-		line-height: 1.17em;
-		padding-top: 0.222em;
-		margin-bottom: 0.944em;
-	}
-
-	p {
-		font-size: var(--font-size-base);
-		line-height: 1.5em;
-		padding-top: 0.429em;
-		margin-bottom: 1.07em;
-	}
-	em {
-		font-family: Georgia, serif;
-	}
-	ul {
+	body {
 		margin: 0;
 		padding: 0;
+		color: var(--c2-base);
+	}
+	main {
+		padding-top: 6rem;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--c1-base: #123;
+			--c1-variant: #135;
+			--c1-light: #347;
+			--c2-base: #eee;
+			--c2-light: #eef;
+			--c2-shade: #369;
+			--c2-faded: #357;
+			--clr-link-accent: #2d3;
+			--clr-link-muted: #4c2;
+			--clr-link-active: #e65; 
+		}
+	}
+	*::selection {
+		background: var(--c1-light);
+	}
+	p,
+	summary {
+		line-height: 1.7;
+	}
+	li,
+	details {
+		line-height: 1.5;
+	}
+	h1,
+	h2,
+	h3 {
+		font-family: serif;
+		color: var(--c2-light);
+	}
+	h1,
+	h2,
+	h3, nav a {
+		text-shadow: 1px 1px 1px var(--c1-base);
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	p,
+	em,
+	li,
+	details {
+		font-size: var(--font-size);
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		margin-block: 0;
+	}
+	p,
+	details {
+		margin-block: calc(var(--font-size) * 1.25);
+	}
+	h1 {
+		font-weight: bold;
+		letter-spacing: -0.05ch;
+		--font-size: var(--font-size-xxl);
+	}
+	h2 {
+		--font-size: var(--font-size-xl);
+	}
+	h3 {
+		--font-size: var(--font-size-lg);
+	}
+	p,
+	em,
+	li,
+	details {
+		--font-size: var(--font-size-base);
 	}
 
 	a {
-		text-underline-offset: 0.35em;
-		color: var(--clr-main-500);
+		font-family: serif;
+		font-weight: normal;
+		font-size: calc(var(--font-size-base) * 1.0625);
+		text-underline-offset: 6px;
+		color: var(--clr-link-accent);
 	}
-
 	a:visited {
-		color: var(--clr-main-600);
+		color: var(--clr-link-muted);
+	}
+	a:hover {
+		color: var(--clr-link-active);
 	}
 
-	
+	em {
+		font-family: 'comic sans ms';
+		font-style: italic;
+	}
 	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-		background: lightgray;
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+		background: var(--c2-faded);
 		padding: 0.2em 0.4em;
 	}
+	a > code {background: inherit; padding: 0;}
 	pre {
 		padding: 8px 16px;
 		overflow: auto;
 		border-radius: 4px;
-		background: #343434;
+		background: var(--c2-base);
 	}
 	pre > code {
 		border-radius: 4px;
-		font-family: Consolas, Monaco, "Andale Mono", monospace;
+		font-family: Consolas, Monaco, 'Andale Mono', monospace;
 		display: block;
-		font-size: 14px;
 		line-height: 1.5;
 		word-break: normal;
 		white-space: pre;
@@ -189,58 +196,92 @@ const { title } = Astro.props;
 		border-left: 4px solid #ddd;
 	}
 
-	header {
-		max-width: var(--max-w);
-		margin: 0 auto;
-		position: relative;
-	}
-	
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: var(--max-w);
-	}
-	h1 {
-		position: relative;
-		text-align: center;
-	}
-	h1:before, h1:after {
-		content: "";
-		--mult: 1.3;
-		height: min(calc(var(--font-size-xl) * var(--mult)), 38%);
-		position: absolute;
-		z-index: -1;
-		--h-alpha: 0.4;
-		--h-clr-a: 80;
-		--h-clr-b: 10;
-
-	}
-	h1:before {
-		background: hsla(var(--h-clr-b), 100%, 65%, calc(var(--h-alpha) * 2));
-		width: calc(100% + 0.25ch);
-		bottom: calc(-1 * var(--font-size-xl) * 0.25);
-		left: 0.035em;
-		border-radius: 0 5px 60% / 40% 85%;
-		transform: rotate(-1deg);
-	}
-	h1:after {
-		background: hsla(var(--h-clr-a), 60%, 65%, var(--h-alpha));
-		width: calc(100% + 0.75ch);
-		top: calc(var(--font-size-xl) * 0.9);
-		left: -0.1em;
-		border-radius: 0 5px 70% / 40% 65%;
-		transform: rotate(1deg);
-	}
-
 	key {
 		color: #666;
 		display: inline-block;
 		text-transform: uppercase;
 		text-align: center;
 		border-radius: 4px;
-		padding:0.15em 0.3em;
+		padding: 0.15em 0.3em;
 		border: 2px solid gray;
-		box-shadow: inset 0 0 20px gray, 0 5px 0 gray,
-			0 6px 0 1px gray, 0 8px 5px gray;
+		box-shadow:
+			inset 0 0 20px gray,
+			0 5px 0 gray,
+			0 6px 0 1px gray,
+			0 8px 5px gray;
+	}
+
+	.container {
+		margin-inline: auto;
+		max-width: min(var(--max-w), calc(100% - 1rem));
+	}
+
+	.container > .full-bg {
+		position: relative;
+		background: var(--c1-variant);
+		outline: calc(var(--font-size) * 1.25) solid var(--c1-variant);
+	}
+	.container > .full-bg::before,
+	.container > .full-bg::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+	.container > .full-bg::before {
+		left: -100%;
+	}
+	.container > .full-bg::after {
+		right: -100%;
+	}
+
+	/* deco */
+	h1,
+	nav a {
+		position: relative;
+	}
+	h1::before,
+	nav a::before {
+		position: absolute;
+		content: '';
+		z-index: -2;
+	}
+	h1::before {
+		width: 2.5ch;
+		height: 112.5%;
+		max-height: 2.5ex;
+		left: calc(var(--font-size-xxl) * -0.5);
+		background: var(--c2-shade);
+	}
+	h2 {
+		position: relative;
+		width: fit-content;
+	}
+	h2::before {
+		--mult: 0.75;
+		position: absolute;
+		content: "";
+		z-index: -1;
+		width: calc(100% - 2ch);
+		height: calc(var(--font-size-lg) * var(--mult));
+
+		background: var(--c2-faded);
+		top: 1.25ex;
+		right: -0.5ch;
+	}
+	nav a::before {
+		width: 1ex;
+		height: 1ex;
+		bottom: 0ex;
+		left: -0.5ex;
+		background: var(--c1-light);
+		transform: scale(1);
+		transform-origin: bottom left;
+		transition: transform ease-out 150ms;
+	}
+	nav a:hover::before {
+		transform: scale(2.2, 2.5);
 	}
 </style>
