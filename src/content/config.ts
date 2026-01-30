@@ -19,7 +19,6 @@ const blogCollection = defineCollection({
     }).optional(),
     published: z.boolean().default(false),
     date: z.date(),
-    featured: z.boolean().optional(),
     // slug: z.string()
     excerpt: z.string().optional()
   }),

@@ -3,7 +3,6 @@ title: "How to answer questions badly"
 date: 2022-04-22
 tags: ["notes"]
 excerpt: "Four strategies you already use!"
-featured: true
 ---
 
 Since January, I've met with hundreds of people who are learning how to code. I've listened to the questions they've asked, and the answers they've gotten—maybe a little too obsessively, which explains the hiatus from blogging. I saw an unusual pattern in some of the back-and-forth. It's unusual, because I'd only ever come across it in conversations between experts and beginners. I couldn't really figure out what was so different. Then I stumbled on an article about a gif with ducks.

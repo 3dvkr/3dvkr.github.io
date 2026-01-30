@@ -3,7 +3,6 @@ title: "Where does a linked list live?"
 date: 2021-11-21
 tags: ["javascript"]
 excerpt: "A model to think about simple data structures"
-featured: true
 ---
 
 The topic of linked lists is a common gateway into the world of data structures. I started paying attention to how someone comes to understand why we'd care about something that, at first, looks a lot like an array—and I saw a trend. Most explanations either emphasize the definition of a linked list conceptually with no mention of what the code looks like, or they walk through code without mentioning the reason for all this trouble when arrays look so much easier to write

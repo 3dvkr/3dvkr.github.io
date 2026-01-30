@@ -9,26 +9,52 @@ const { base: baseURL } = info
 			<a href={baseURL + '/'}>Home</a>
 		</div>
 		<div class="links">
-			<a href={baseURL + '/portfolio'}>Portfolio</a>
-			<a href="https://www.twitter.com/_dvkr" rel="me">Twitter</a>
 			<a href="https://www.github.com/3dvkr" rel="me">GitHub</a>
+			<a href="https://bsky.app/profile/dvkr.bsky.social" rel="me">Bsky</a>
 		</div>
 	</nav>
 </header>
 
 <style>
 	nav {
+		--deco-width: calc(100% + 0.5ch);
+		--deco-height: calc(var(--font-size-md) * 0.5);
+		--x-shift: -0.5ex;
+		--y-shift: -0.25ex;
+	}
+	.links {
+		/* --deco-height: calc(var(--font-size-md) * 05); */
+		--x-shift: -0.5ex;
+		--y-shift: 0.5ex;
+	}
+	nav {
 		padding-block: 1lh 0.5lh;
 		& a {
 			font-size: var(--font-size-lg);
 			text-decoration: none;
 		}
+		& .links > a {
+			font-size: calc(var(--font-size-lg) * 0.75);
+		}
+	}
+
+	nav a::before {
+		width: var(--deco-width);
+		height: var(--deco-height);
+		bottom: var(--y-shift);
+		background: var(--c2-shade);
+		transform: rotateX(80deg);
+		transform-origin: right top;
+		transition: transform ease-out 150ms;
+	}
+	nav a:hover::before {
+		transform: scale(0.75) translateY(calc(abs(var(--y-shift)) * -1)) rotateX(0);
 	}
 	@media screen and (min-width: 400px) {
 		nav, .links {
 			display: flex;
 			gap: 2ch;
-      font-size: var(--font-size-md);
+      		font-size: var(--font-size-md);
 		}
 		.links {
 			margin-left: auto;

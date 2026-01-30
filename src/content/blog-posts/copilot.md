@@ -3,7 +3,6 @@ title: "GitHub Co-Pilot as a personal tutor"
 date: 2021-07-27
 tags: ['learning-strategies']
 excerpt: "It just might be the get-out-of-tutorial-hell card we all need."
-featured: true
 ---
 GitHub launched a technical preview of its pair programmer AI, Co-Pilot. Immediately after its launch, the loudest response from the tech community was, "You really need to know your stuff in order to use it." In other words, newbies need not apply. 
 
