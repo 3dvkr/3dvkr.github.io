@@ -20,5 +20,5 @@ The third option takes me to the Apple note right away, where I can write about 
 Now what might we do with all these timestamps I'm collecting...
 
 Further reading:
-[How to Create an iOS Shortcut to Prevent Mindless Scrolling](https://meganesulli.com/blog/shortcut-stop-scrolling/)
-[Is your wellness app making you anxious?](https://afterburnout.co/p/your-wellness-app-is-making-you-anxious)
+- [How to Create an iOS Shortcut to Prevent Mindless Scrolling](https://meganesulli.com/blog/shortcut-stop-scrolling/)
+- [Is your wellness app making you anxious?](https://afterburnout.co/p/your-wellness-app-is-making-you-anxious)
